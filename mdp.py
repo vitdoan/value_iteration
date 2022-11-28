@@ -105,9 +105,23 @@ def value_iteration(mdp, gamma, epsilon):
     """
 
     "*** YOUR CODE HERE***"
-    
-    pass
-
+    util = dict.fromkeys(mdp.get_states(), 0)
+    while True:
+        cur_util = util.copy()
+        max_change = 0
+        for state in mdp.get_states():
+            max_util = float('-inf')
+            for a in mdp.get_actions(state):
+                sum_u = 0
+                for s, p in mdp.get_successor_probs(state, a).items():
+                    sum_u += p * cur_util[s]
+                if sum_u > max_util:
+                    max_util = sum_u
+            util[state] = mdp.get_reward(state) + gamma * max_util
+            max_change = max(max_change, abs(cur_util[state] - util[state]))
+        if max_change < epsilon:
+            break
+    return cur_util
 
 def derive_policy(mdp, utility):
     """Create a policy from an MDP and a set of utilities for each state.
@@ -210,10 +224,4 @@ def ascii_grid(vals):
     s += "| {} | {} | {} | \n".format(vals[(1, 1)], vals[(2, 1)], vals[(3, 1)])
     s += "|__________|__________|__________| \n"
     return s
-
-rew = {
-    (3,3):10,
-    (2,3):-10
-}
-sample = MDP(3,3,rew,[(2,3)],0.8,-1)
 
