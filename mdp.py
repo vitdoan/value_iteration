@@ -105,8 +105,11 @@ def value_iteration(mdp, gamma, epsilon):
     """
 
     "*** YOUR CODE HERE***"
+    # i = 0
     util = dict.fromkeys(mdp.get_states(), 0)
     while True:
+        # policy = derive_policy(mdp,util)
+        # print(ascii_grid_policy(policy))
         cur_util = util.copy()
         max_change = 0
         for state in mdp.get_states():
@@ -119,6 +122,8 @@ def value_iteration(mdp, gamma, epsilon):
                     max_util = sum_u
             util[state] = mdp.get_reward(state) + gamma * max_util
             max_change = max(max_change, abs(cur_util[state] - util[state]))
+        # print(i,util)
+        # i+=1
         if max_change < epsilon:
             break
     return cur_util

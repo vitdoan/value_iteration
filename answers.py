@@ -14,16 +14,16 @@ def q1_and_2():
     gridworld = mdp.MDP(2, 3,
                     rewards={ (2, 2): -10, (3, 2): 20},
                     terminals=[(2, 2), (3, 2)],
-                    prob_forw=0.8)
+                    prob_forw=0.8,
+                    reward_default=-1)
     epsilon = 0.01
     discount_factor = 0.8
 
     print("\n", '─' * 50, "\n", "Question 1 and 2")
     utilities, policy = mdp.utils_and_policy(gridworld, discount_factor, epsilon)
-
     # TODO: Fill these in.
-    num_convergance_utility = None
-    num_convergance_policy = None
+    num_convergance_utility = 10
+    num_convergance_policy = 5
 
     return {"gridworld": gridworld, "epsilon": epsilon,
         "discount_factor": discount_factor, "utilities": utilities,
@@ -34,15 +34,19 @@ def q3():
     # TODO: Replace the None values here based on the questions in the PDF.
     #       DO NOT change anything besides these None values when you submit.
     #       However, you may add print statements if it helps.
-    gridworld = None
-    epsilon = None
-    discount_factor = None
+    gridworld = mdp.MDP(2, 3,
+                    rewards={ (2, 2): -100, (3, 2): 20},
+                    terminals=[(2, 2), (3, 2)],
+                    prob_forw=0.8,
+                    reward_default=-1)
+    epsilon = 0.01
+    discount_factor = 0.8
 
     print("\n", '─' * 50, "\n", "Question 3")
     utilities, policy = mdp.utils_and_policy(gridworld, discount_factor, epsilon)
 
     # TODO: Enter one of the following answer choices below: "a", "b", "c", "d"
-    changed_policy_answer = None
+    changed_policy_answer = 'a'
 
     return {"gridworld": gridworld, "epsilon": epsilon,
         "discount_factor": discount_factor,"utilities": utilities,
@@ -52,15 +56,19 @@ def q4():
     # TODO: Replace the None values here based on the questions in the PDF.
     #       DO NOT change anything besides these None values when you submit.
     #       However, you may add print statements if it helps.
-    gridworld = None
-    epsilon = None
-    discount_factor = None
+    gridworld = mdp.MDP(2, 3,
+                    rewards={ (2, 2): -10, (3, 2): 20},
+                    terminals=[(2, 2), (3, 2)],
+                    prob_forw=0.5,
+                    reward_default=-1)
+    epsilon = 0.01
+    discount_factor = 0.8
 
     print("\n", '─' * 50, "\n", "Question 4")
     utilities, policy = mdp.utils_and_policy(gridworld, discount_factor, epsilon)
 
     # TODO: Enter one of the following answer choices below: "a", "b", "c", "d"
-    changed_policy_answer = None
+    changed_policy_answer = 'b'
 
     return {"gridworld": gridworld, "epsilon": epsilon,
         "discount_factor": discount_factor,"utilities": utilities,
@@ -70,15 +78,19 @@ def q5():
     # TODO: Replace the None values here based on the questions in the PDF.
     #       DO NOT change anything besides these None values when you submit.
     #       However, you may add print statements if it helps.
-    gridworld = None
-    epsilon = None
-    discount_factor = None
+    gridworld = mdp.MDP(2, 3,
+                    rewards={ (2, 2): -10, (3, 2): 20},
+                    terminals=[(2, 2), (3, 2)],
+                    prob_forw=0.8,
+                    reward_default=-1)
+    epsilon = 0.01
+    discount_factor = 0.6
 
     print("\n", '─' * 50, "\n", "Question 5")
     utilities, policy = mdp.utils_and_policy(gridworld, discount_factor, epsilon)
 
     # TODO: Enter one of the following answer choices below: "a", "b", "c", "d"
-    changed_policy_answer = None
+    changed_policy_answer = 'a'
 
     return {"gridworld": gridworld, "epsilon": epsilon,
         "discount_factor": discount_factor,"utilities": utilities,
